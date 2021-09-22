@@ -82,9 +82,9 @@ const Auth: React.FC = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [isLogin, setIsLogin] = useState(true);
 
-  const [username, setUsername] = useState("");
   const [avatarImage, setAvatarImage] = useState<File | null>(null);
 
   const [openModal, setOpenModal] = React.useState(false);
@@ -95,6 +95,7 @@ const Auth: React.FC = () => {
       e.target.value = "";
     }
   };
+
   const sendResetEmail = async (e: React.MouseEvent<HTMLElement>) => {
     await auth
       .sendPasswordResetEmail(resetEmail)
@@ -127,6 +128,7 @@ const Auth: React.FC = () => {
       await storage.ref(`avatars/${fileName}`).put(avatarImage);
       url = await storage.ref("avatars").child(fileName).getDownloadURL();
     }
+
     await authUser.user?.updateProfile({
       displayName: username,
       photoURL: url,
