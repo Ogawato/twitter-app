@@ -82,9 +82,11 @@ const Auth: React.FC = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLogin, setIsLogin] = useState(true);
+
   const [username, setUsername] = useState("");
   const [avatarImage, setAvatarImage] = useState<File | null>(null);
-  const [isLogin, setIsLogin] = useState(true);
+
   const [openModal, setOpenModal] = React.useState(false);
   const [resetEmail, setResetEmail] = useState("");
   const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -249,6 +251,7 @@ const Auth: React.FC = () => {
             >
               {isLogin ? "Login" : "Register"}
             </Button>
+
             <Grid container>
               <Grid item xs>
                 <span
