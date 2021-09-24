@@ -108,6 +108,7 @@ const Auth: React.FC = () => {
         setResetEmail("");
       });
   };
+
   const signInGoogle = async () => {
     await auth.signInWithPopup(provider).catch((err) => alert(err.message));
   };
@@ -171,6 +172,7 @@ const Auth: React.FC = () => {
                     setUsername(e.target.value);
                   }}
                 />
+
                 <Box textAlign="center">
                   <IconButton>
                     <label>
